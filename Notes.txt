@@ -1,0 +1,10 @@
+1. An intal being a null pointer.
+You know that the client looks at the intal as a void pointer. A null pointer is treated as not a number (NaN in short). NaN is not zero. 
+intal_destroy(void* intal) does nothing if the intal is null.
+char* intal2str(void* intal) returns "NaN" if the intal is null.
+intal_increment(), intal_decrement(), intal_add(), intal_diff(), intal_multiply(), intal_divide(), intal_pow() returns a null pointer if the intal is null.
+intal_compare() returns 0, but that doesn't both intals are equal.
+
+2. Size of the intal.
+Even though there is no theoretical limit to the size of the intal, we make sure that you don't need to handle an intal having more 10,000 digits in decimal base system. All the functions, whenever they return an intal, it should have stripped off the leading zeros. For example, addition of "0123" and "55" should be returned as "178". Obviously, the length of the integer in decimal digits is exlcuding the leading zeros.
+
